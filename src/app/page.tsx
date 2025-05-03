@@ -1,16 +1,16 @@
 "use client";
-import Link from "next/link"
 import Image from "next/image"
 import { Check, CreditCard, Receipt, Split, Users, Bell, ArrowRight } from "lucide-react"
 import { useEffect } from "react";
 import { trackEvent } from "@/lib/amplitude";
 
 import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
 import { Card, CardContent } from "@/components/ui/card"
 
 import Top from "@/images/top.png"
 import Bottom from "@/images/bottom.png"
+
+import { SignupWaitlistForm } from "@/components/signup-waitlist-form";
 
 export default function Home() {
   useEffect(() => {
@@ -282,7 +282,7 @@ export default function Home() {
                   <div className="text-sm text-gray-600">or $39.99/year <span className="text-green-600 font-semibold">(save 17%)</span></div>
                   <div className="mt-2 text-xs text-blue-700 font-semibold bg-blue-100 px-3 py-1 rounded-full">First 2 months free for early adopters!</div>
                 </div>
-                <Button className="w-full bg-blue-600 text-white hover:bg-blue-700 shadow-lg" disabled onClick={() => trackEvent('pricing_button_click', { plan: 'pro' })}>Upgrade to Pro</Button>
+                <Button className="w-full bg-blue-600 text-white hover:bg-blue-700 shadow-lg" onClick={() => trackEvent('pricing_button_click', { plan: 'pro' })}>Upgrade to Pro</Button>
               </div>
             </div>
           </div>
@@ -298,21 +298,29 @@ export default function Home() {
               Be among the first to try BillPal when we launch.
             </p>
           </div>
-          <div className="w-full max-w-sm mx-auto space-y-2">
-            <form className="flex flex-col space-y-4 sm:flex-row sm:space-x-2 sm:space-y-0">
-              <Input className="max-w-lg flex-1" placeholder="Enter your email" type="email" required />
-              <Button type="submit" className="bg-blue-500 hover:bg-blue-600 cursor-pointer" onClick={() => trackEvent('signup_submit')}>
-                Request Access
-              </Button>
-            </form>
-            <p className="text-xs text-gray-500">We'll notify you when BillPal is ready. No spam, we promise.</p>
-          </div>
+          <SignupWaitlistForm />
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t max-w-7xl mx-auto justify-center bg-white mt-8 rounded-t-2xl shadow">
-        <p className="text-xs text-gray-500">© 2025 BillPal. All rights reserved.</p>
+      <footer className="flex flex-col sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t max-w-7xl mx-auto bg-white mt-8 rounded-t-2xl shadow justify-between">
+        <div className="text-xs text-gray-500">© 2025 BillPal. All rights reserved.</div>
+        <nav className="flex gap-4">
+          <a
+            href="/toc.txt"
+            className="text-xs text-gray-500 hover:underline underline-offset-4"
+            onClick={() => trackEvent('terms_footer_link_click')}
+          >
+            Terms & Conditions
+          </a>
+          <a
+            href="/privacy.txt"
+            className="text-xs text-gray-500 hover:underline underline-offset-4"
+            onClick={() => trackEvent('privacy_footer_link_click')}
+          >
+            Privacy Policy
+          </a>
+        </nav>
       </footer>
     </div>
   )

@@ -1,0 +1,41 @@
+🔒 Privacy Policy for BillPal
+Effective Date: 05/03/2025
+
+At BillPal, your privacy is a top priority. This policy explains what data we collect, how we use it, and your rights.
+
+1. What We Collect
+Email Address: When you join our waitlist, we collect your email to notify you about product updates and launches.
+
+Analytics Data: Through Amplitude, we collect anonymized usage data such as device info, referral sources, time spent on pages, and button clicks.
+
+2. How We Use Your Data
+To keep you updated about BillPal’s development and launch.
+
+To understand user behavior and improve our website and messaging.
+
+To manage and analyze waitlist interest.
+
+3. Sharing Your Data
+We do not sell your data. We only share it with trusted service providers (e.g., Amplitude, email platforms like Mailchimp or Resend) who assist us in delivering Services and agree to maintain its confidentiality.
+
+4. Your Rights
+You may:
+
+Request deletion of your email from our records.
+
+Opt-out of email communication at any time.
+
+Request access to data we’ve collected about you.
+
+5. Data Security
+We use modern encryption and security practices to protect your data. However, no internet transmission is 100% secure, so use the Services at your own risk.
+
+6. Cookies & Tracking
+We use cookies and tracking technologies for analytics and improving user experience. You can opt out via your browser settings.
+
+7. Third-Party Links
+Our site may contain links to third-party sites. We’re not responsible for their content or privacy practices.
+
+8. Changes
+We may update this policy. If significant changes are made, we’ll update the “Effective Date” and may notify you directly.
+
