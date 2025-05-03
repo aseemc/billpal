@@ -1,6 +1,9 @@
+"use client";
 import Link from "next/link"
 import Image from "next/image"
 import { Check, CreditCard, Receipt, Split, Users, Bell, ArrowRight } from "lucide-react"
+import { useEffect } from "react";
+import { trackEvent } from "@/lib/amplitude";
 
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -10,6 +13,10 @@ import Top from "@/images/top.png"
 import Bottom from "@/images/bottom.png"
 
 export default function Home() {
+  useEffect(() => {
+    trackEvent("page_view", { page: "home" });
+  }, []);
+
   return (
     <div id="top" className="min-h-screen bg-white flex flex-col max-w-5xl mx-auto scroll-smooth">
       {/* Header */}
@@ -19,12 +26,12 @@ export default function Home() {
           <span className="ml-2 font-bold text-2xl">BillPal</span>
         </a>
         <nav className="hidden md:flex gap-8 font-medium text-gray-700">
-          <Link href="#problem" className="hover:text-blue-500 transition">Problem</Link>
-          <Link href="#features" className="hover:text-blue-500 transition">Solution</Link>
-          <Link href="#benefits" className="hover:text-blue-500 transition">Benefits</Link>
-          <Link href="#pricing" className="hover:text-blue-500 transition">Pricing</Link>
+          <a href="#problem" className="hover:text-blue-500 transition" onClick={() => trackEvent('nav_click', { section: 'problem' })}>Problem</a>
+          <a href="#features" className="hover:text-blue-500 transition" onClick={() => trackEvent('nav_click', { section: 'solution' })}>Solution</a>
+          <a href="#benefits" className="hover:text-blue-500 transition" onClick={() => trackEvent('nav_click', { section: 'benefits' })}>Benefits</a>
+          <a href="#pricing" className="hover:text-blue-500 transition" onClick={() => trackEvent('nav_click', { section: 'pricing' })}>Pricing</a>
         </nav>
-        <a href="#signup" className="ml-6 px-6 py-2 bg-blue-500 text-white rounded-full shadow hover:bg-blue-600 font-semibold hidden md:inline-block">Get Early Access</a>
+        <a href="#signup" className="ml-6 px-6 py-2 bg-blue-500 text-white rounded-full shadow hover:bg-blue-600 font-semibold hidden md:inline-block" onClick={() => trackEvent('get_early_access_click', { location: 'header' })}>Get Early Access</a>
       </header>
 
       {/* Hero Section */}
@@ -32,7 +39,7 @@ export default function Home() {
         <div className="max-w-xl flex-1">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Stop Chasing Friends for Subscription Money</h1>
           <p className="text-lg text-gray-600 mb-8">Easily split & manage shared subscriptions like Netflix, Spotify, and more with friends and family.</p>
-          <a href="#signup" className="px-8 py-3 bg-blue-500 text-white rounded-full shadow hover:bg-blue-600 font-semibold inline-flex items-center gap-2">
+          <a href="#signup" className="px-8 py-3 bg-blue-500 text-white rounded-full shadow hover:bg-blue-600 font-semibold inline-flex items-center gap-2" onClick={() => trackEvent('get_early_access_click', { location: 'hero' })}>
             Get Early Access <ArrowRight className="h-5 w-5" />
           </a>
         </div>
@@ -248,7 +255,7 @@ export default function Home() {
                 <li className="flex items-center gap-2"><Check className="text-green-500 w-5 h-5 min-w-[20px] min-h-[20px]" /> Standard support.</li>
               </ul>
               <div className="flex-1 flex flex-col justify-end">
-                <Button className="w-full bg-blue-100 text-blue-600 hover:bg-blue-200" disabled>Current Plan</Button>
+                <Button className="w-full mt-auto bg-blue-100 text-blue-600 hover:bg-blue-200" disabled onClick={() => trackEvent('pricing_button_click', { plan: 'free' })}>Current Plan</Button>
               </div>
             </div>
             {/* Pro Plan */}
@@ -275,7 +282,7 @@ export default function Home() {
                   <div className="text-sm text-gray-600">or $39.99/year <span className="text-green-600 font-semibold">(save 17%)</span></div>
                   <div className="mt-2 text-xs text-blue-700 font-semibold bg-blue-100 px-3 py-1 rounded-full">First 2 months free for early adopters!</div>
                 </div>
-                <Button className="w-full bg-blue-600 text-white hover:bg-blue-700 shadow-lg">Upgrade to Pro</Button>
+                <Button className="w-full bg-blue-600 text-white hover:bg-blue-700 shadow-lg" disabled onClick={() => trackEvent('pricing_button_click', { plan: 'pro' })}>Upgrade to Pro</Button>
               </div>
             </div>
           </div>
@@ -294,7 +301,7 @@ export default function Home() {
           <div className="w-full max-w-sm mx-auto space-y-2">
             <form className="flex flex-col space-y-4 sm:flex-row sm:space-x-2 sm:space-y-0">
               <Input className="max-w-lg flex-1" placeholder="Enter your email" type="email" required />
-              <Button type="submit" className="bg-blue-500 hover:bg-blue-600 cursor-pointer">
+              <Button type="submit" className="bg-blue-500 hover:bg-blue-600 cursor-pointer" onClick={() => trackEvent('signup_submit')}>
                 Request Access
               </Button>
             </form>
