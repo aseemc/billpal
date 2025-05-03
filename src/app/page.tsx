@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <div className="flex min-h-screen flex-col items-center px-4 my-6">
       <div className="w-full max-w-screen-lg rounded-2xl border shadow-lg bg-white flex flex-col min-h-screen">
-        <header className="w-full max-w-screen-lg mx-auto px-4 lg:px-6 h-16 flex items-center">
+        <header className="sticky top-0 z-50 bg-white/80 backdrop-blur border-b w-full max-w-screen-lg mx-auto px-4 lg:px-6 h-16 flex items-center rounded-t-2xl overflow-hidden">
           <Link className="flex items-center justify-center" href="#">
             <CreditCard className="h-6 w-6 text-blue-500" />
             <span className="ml-2 text-xl font-bold">BillPal</span>
