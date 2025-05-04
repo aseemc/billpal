@@ -1,11 +1,10 @@
 "use client";
 import Image from "next/image"
-import { Check, CreditCard, Receipt, Split, Users, Bell, ArrowRight, Menu, X } from "lucide-react"
+import { Check, CreditCard, Receipt, Split, Users, Bell, Menu, X } from "lucide-react"
 import { useEffect, useState } from "react";
 import { trackEvent } from "@/lib/amplitude";
 import { createUserWaitlist } from "@/actions/userWaitlistAction";
 
-import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Switch } from "@/components/ui/switch"
 

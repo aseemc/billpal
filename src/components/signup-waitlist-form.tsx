@@ -27,8 +27,8 @@ export function SignupWaitlistForm() {
   return (
     <div className="w-full max-w-md mx-auto space-y-2">
       <form className="flex flex-col md:flex-row md:items-center gap-4 w-full justify-center" onSubmit={handleSubmit}>
-        <input
-          className="px-4 py-3 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 text-base w-full md:min-w-[350px] md:max-w-[350px] md:w-[350px]"
+        <Input
+          className="px-4 py-6 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 text-base w-full md:min-w-[350px] md:max-w-[350px] md:w-[350px]"
           placeholder="Enter your email"
           type="email"
           required
@@ -36,9 +36,9 @@ export function SignupWaitlistForm() {
           onChange={e => setEmail(e.target.value)}
           disabled={isPending}
         />
-        <button
+        <Button
           type="submit"
-          className="px-8 py-3 bg-blue-600 text-white rounded-full font-bold shadow hover:bg-blue-700 transition min-w-[200px] w-full md:w-auto flex items-center justify-center gap-2 cursor-pointer"
+          className="px-8 py-6 rounded-full font-bold shadow bg-blue-600 text-white hover:bg-blue-700 transition min-w-[200px] w-full md:w-auto flex items-center justify-center gap-2 cursor-pointer"
           disabled={isPending}
         >
           {isPending ? (
@@ -49,7 +49,7 @@ export function SignupWaitlistForm() {
           ) : (
             "Get early access"
           )}
-        </button>
+        </Button>
       </form>
       <p className="text-xs text-gray-500 text-center">We'll notify you when BillPal is ready. No spam, we promise.</p>
     </div>
