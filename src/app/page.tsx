@@ -73,6 +73,22 @@ export default function Home() {
               </button>
             </form>
           )}
+          <div className="w-full flex justify-start mb-8">
+            <div className="flex items-center rounded-xl py-3 gap-4">
+              <div className="flex -space-x-4">
+                {[1,2,3,4,5,6].map(i => (
+                  <img
+                    key={i}
+                    src={`/avatar_${i}.jpg`}
+                    alt={`User avatar ${i}`}
+                    className="w-10 h-10 rounded-full border-2 border-white object-cover bg-white"
+                    style={{ zIndex: 10 - i }}
+                  />
+                ))}
+              </div>
+              <span className="text-gray-500 text-sm whitespace-nowrap">100+ waiting to try it out!</span>
+            </div>
+          </div>
         </div>
         <div className="flex-1 flex items-center justify-center mt-10 md:mt-0 w-full">
           <Image
