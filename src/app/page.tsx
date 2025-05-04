@@ -75,13 +75,15 @@ export default function Home() {
           )}
           <div className="w-full flex justify-start mb-8">
             <div className="flex items-center rounded-xl py-3 gap-4">
-              <div className="flex -space-x-4">
+              <div className="flex -space-x-3">
                 {[1,2,3,4,5,6].map(i => (
-                  <img
+                  <Image
                     key={i}
                     src={`/avatar_${i}.jpg`}
                     alt={`User avatar ${i}`}
-                    className="w-10 h-10 rounded-full border-2 border-white object-cover bg-white"
+                    width={35}
+                    height={35}
+                    className="rounded-full border-2 border-white object-cover bg-white"
                     style={{ zIndex: 10 - i }}
                   />
                 ))}
