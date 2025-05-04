@@ -25,10 +25,10 @@ export function SignupWaitlistForm() {
   }
 
   return (
-    <div className="w-full max-w-sm mx-auto space-y-2">
-      <form className="flex flex-col space-y-4 sm:flex-row sm:space-x-2 sm:space-y-0" onSubmit={handleSubmit}>
-        <Input
-          className="flex-1"
+    <div className="w-full max-w-md mx-auto space-y-2">
+      <form className="flex flex-col md:flex-row md:items-center gap-4 w-full justify-center" onSubmit={handleSubmit}>
+        <input
+          className="px-4 py-3 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 text-base w-full md:min-w-[350px] md:max-w-[350px] md:w-[350px]"
           placeholder="Enter your email"
           type="email"
           required
@@ -36,9 +36,9 @@ export function SignupWaitlistForm() {
           onChange={e => setEmail(e.target.value)}
           disabled={isPending}
         />
-        <Button
+        <button
           type="submit"
-          className="bg-blue-500 hover:bg-blue-600 cursor-pointer min-w-[140px] flex items-center justify-center"
+          className="px-8 py-3 bg-blue-600 text-white rounded-full font-bold shadow hover:bg-blue-700 transition min-w-[200px] w-full md:w-auto flex items-center justify-center gap-2 cursor-pointer"
           disabled={isPending}
         >
           {isPending ? (
@@ -47,9 +47,9 @@ export function SignupWaitlistForm() {
               <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path>
             </svg>
           ) : (
-            "Request Access"
+            "Get early access"
           )}
-        </Button>
+        </button>
       </form>
       <p className="text-xs text-gray-500 text-center">We'll notify you when BillPal is ready. No spam, we promise.</p>
     </div>
